@@ -1,0 +1,12 @@
+## Fichier : docker-compose.yml
+version: '3'
+services:
+  progress:
+    container_name: progress
+    build: .
+    ports:
+      - "3000:3000"
+    # stdin_open: true
+    volumes:
+       - .:/usr/src/app/my-progress
+       - /usr/src/app/my-progress/node_modules
