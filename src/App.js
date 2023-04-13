@@ -1,3 +1,5 @@
+
+import { useState } from 'react';
 import {Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Menu from  './components/Menu';
@@ -6,12 +8,20 @@ import TechnoList from './pages/TechnoList';
 import './css/app.css';
 
 function App() {
+  const [technos, setTechnos] = useState([]);
+  //exemple [{name: 'React, category: 'front', decription: 'Learn React}, {}, ........]
+
+  function handleAddTechno(techno) {
+    console.log('handleAddTechno', techno);
+    setTechnos([...technos, techno]);
+    
+  }
   return (
     <>
       <Menu />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/add' element={<TechnoAdd />} />
+        <Route path='/add' element={<TechnoAdd  handleAddTechno={handleAddTechno}/>} />
         <Route path='/list' element={<TechnoList />} />
       </Routes>
     </>
