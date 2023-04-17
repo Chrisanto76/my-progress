@@ -2,7 +2,9 @@ import {useState} from 'react';
 
 export default function TechnoAdd(props) {
     const [techno, setTechno] = useState({
-       
+        technoname: '',
+            technocategory: '',
+            technodescription: ''
     });
 
     const { handleAddTechno } = props;
